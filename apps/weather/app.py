@@ -36,6 +36,8 @@ class App(rapidsms.app.App):
 
                 param_split = parameters.split(" ", 1)
 
+		print param_split	
+
                 
                 if param_split.__len__() == 1:
                     country = param_split[0]
@@ -56,7 +58,12 @@ class App(rapidsms.app.App):
                 except:
                     message.respond(u"المنطقة المحددة غير موجودة الرجاء إدخال الرمز الصحيح ")
                     return True
-        	weather = Weather.objects.get(weatherLocation=location,dayofweek=today)
+
+                try:
+                    weather = Weather.objects.get(weatherLocation=location,dayofweek=today)
+                except:
+                    message.respond(u"لا يوجد معلومة لهذا اليوم  ")
+                    return True
 
                 day_string = self.name_from_id(today)
 		message.respond(u"يكون الجو  في مدينة %(name)s يوم  %(sky)s %(day)s و درجة الحرارة %(temp)s" % {'name':location.name, 'sky':weather.sky.name, 'temp': weather.temp, 'day': day_string})

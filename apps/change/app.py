@@ -22,4 +22,4 @@ class App(rapidsms.app.App):
 
             message.respond(u"%(msg)s ILS = %(new)s USD" % {'msg': amount, 'new': round(new_rate, 2)})
 
-        return True
+            return True
