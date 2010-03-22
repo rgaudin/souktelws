@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "ash.worldclock", "fields": {"diff": 1.0, "code": "fr", "cityName": "\u0641\u0631\u0646\u0633\u0627"}}, {"pk": 2, "model": "ash.worldclock", "fields": {"diff": 2.0, "code": "ps", "cityName": "\u0642\u0644\u0633\u0637\u064a\u0646"}}]
