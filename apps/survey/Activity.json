@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "survey.activity", "fields": {"code": "st", "name": "Student"}}, {"pk": 2, "model": "survey.activity", "fields": {"code": "gov", "name": "Government Employee"}}, {"pk": 3, "model": "survey.activity", "fields": {"code": "pri", "name": "Private Sector Employee"}}, {"pk": 4, "model": "survey.activity", "fields": {"code": "no", "name": "Unemployed"}}]
