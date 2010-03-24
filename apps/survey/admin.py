@@ -5,5 +5,14 @@ from django.contrib import admin
 
 from models import Person, Activity
 
-admin.site.register(Person)
+class PersonAdmin(admin.ModelAdmin):
+
+    list_display = ('name', 'age', 'sex_name', 'activity', 'entered_on')
+    list_filter = ('activity', 'sex')
+    ordering = [('-entered_on')]
+    search_fields = ['first_name', 'last_name', 'activity__name']
+
+
+
+admin.site.register(Person, PersonAdmin)
 admin.site.register(Activity)
