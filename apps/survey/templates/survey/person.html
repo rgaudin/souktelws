@@ -1,6 +1,6 @@
 {% extends base_template %}
 
-{% block title %}Survey Dashboard{% endblock %}
+{% block title %}Survey Profile{% endblock %}
 {% block content %}
 
 <h2>{{ person }}</h2>
@@ -11,6 +11,7 @@
     <li>Sex: {{ person.sex_name }}</li>
     <li>Age: {{ person.age }}</li>
     <li>Occupation: {{ person.activity.name }}</li>
+    <li>Date: {{ person.entered_on|date:"l F dS Y" }}</li>
 </ul>
 
 {% endblock %}
