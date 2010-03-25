@@ -1,0 +1,16 @@
+{% extends base_template %}
+
+{% block title %}Survey Dashboard{% endblock %}
+{% block content %}
+
+<h2>{{ person }}</h2>
+<ul>
+    <li>ID: #{{ person.id }}
+    <li>First Name: {{ person.first_name }}</li>
+    <li>Last Name: {{ person.last_name }}</li>
+    <li>Sex: {{ person.sex_name }}</li>
+    <li>Age: {{ person.age }}</li>
+    <li>Occupation: {{ person.activity.name }}</li>
+</ul>
+
+{% endblock %}
