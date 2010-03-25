@@ -3,6 +3,7 @@
 
 import rapidsms
 from rapidsms.parsers.keyworder import Keyworder
+from django.utils.translation import ugettext as _
 
 from models import *
 
@@ -25,25 +26,26 @@ class App(rapidsms.app.App):
         try:
             return func(self, message, *captures)
         except Exception, e:
-            message.respond(u"Survey System Error: %s" % e)
+            message.respond(_(u"Survey System Error: %s") % e)
             return True
 
-    keyword.prefix = ['help']
+    keyword.prefix = ['help', _(u"help")]
 
     @keyword('')
     def help(self, message):
         ''' display a usage message for the survey '''
-        message.respond(u"Survey format: survey FIRST LAST SEX AGE (ACTIVITY)")
+        message.respond(_(u"Survey format: survey FIRST LAST SEX AGE (ACTIVITY)"))
         return True
 
-    keyword.prefix = ['survey', 'fill']
+    keyword.prefix = ['survey', 'fill', _(u"survey")]
 
-    @keyword(r'(\w+) (\w+) ([m|f]) (\d+)\s?(\w*)')
+    @keyword(r'(\w+) (\w+) (\w) (\d+)\s?(\w*)')
     def fill(self, message, first, last, sex, age, activity_code):
         ''' Enters a survey item into the DB '''
 
+        message.respond(sex)
         # parse appropriate sex type
-        if sex.lower() == 'm':
+        if sex.lower() in ('m', _(u"m")):
             sex = Person.MALE
         else:
             sex = Person.FEMALE
@@ -62,14 +64,13 @@ class App(rapidsms.app.App):
                         age=age, activity=activity)
         person.save()
 
-        message.respond(u"Thank you %(name)s for taking the survey. " \
-                        "Your ID is %(id)s" \
+        message.respond(_(u"Thank you %(name)s for taking the survey. " \
+                        "Your ID is %(id)s") \
                         % {'name': person.name, 'id': person.id})
         return True
 
-    keyword.prefix = ''
-
-    @keyword('find\s?(\w*)')
+    keyword.prefix = ['find', _(u"find")]
+    @keyword('(\w+)')
     def search(self, message, activity_code):
         ''' find the result of people in DB filtered by activity '''
 
@@ -86,18 +87,21 @@ class App(rapidsms.app.App):
         for person in persons:
             persons_a.append(person.name)
 
-        answer = u"%s People. " % persons.__len__()
-        answer += u", ".join(persons_a)
+        count = _(u"%s People.") % persons.__len__()
+        people_str = u""
+        people_str += _(u", ").join(persons_a)
+        answer = _(u"%(count)s %(people)s") \
+                 % {'count': count, 'people': people_str}
 
         message.respond(answer[:160])
         return True
 
-    keyword.prefix = ['stat', 'stats']
+    keyword.prefix = ['stat', _(u"stat")]
 
     @keyword('')
     def stats(self, message):
         ''' returns the number of records in DB. '''
         persons = Person.objects.all()
-        message.respond(u"Survey database knows about %d persons." \
+        message.respond(_(u"Survey database knows about %d persons.") \
                         % persons.__len__())
         return True

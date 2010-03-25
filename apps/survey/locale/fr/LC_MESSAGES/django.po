@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-25 11:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app.py:29
+#, python-format
+msgid "Survey System Error: %s"
+msgstr ""
+
+#: app.py:32
+msgid "help"
+msgstr "aide"
+
+#: app.py:37
+msgid "Survey format: survey FIRST LAST SEX AGE (ACTIVITY)"
+msgstr "Format des messages: enquete PRÉNOM NOM SEXE AGE (ACTIVITÉ)"
+
+#: app.py:40
+msgid "survey"
+msgstr "enquete"
+
+#: app.py:48
+msgid "m"
+msgstr "h"
+
+#: app.py:67
+#, python-format
+msgid "Thank you %(name)s for taking the survey. Your ID is %(id)s"
+msgstr "Merci d'avoir répondu %(name)s. Votre identifiant est %(id)s"
+
+#: app.py:72
+msgid "find"
+msgstr "recherche"
+
+#: app.py:90
+#, python-format
+msgid "%s People."
+msgstr "%s résultats."
+
+#: app.py:92
+msgid ", "
+msgstr ", "
+
+#: app.py:93
+#, python-format
+msgid "%(count)s %(people)s"
+msgstr "%(count)s %(people)s"
+
+#: app.py:99
+msgid "stat"
+msgstr "stat"
+
+#: app.py:105
+#, python-format
+msgid "Survey database knows about %d persons."
+msgstr "La base de données contient %d personnes."
+
+#: models.py:12
+msgid "Encounter"
+msgstr "Enregistrement"
+
+#: models.py:13
+msgid "Encounters"
+msgstr "Enregistrements"
+
+#: models.py:18
+msgid "Male"
+msgstr "Homme"
+
+#: models.py:19
+msgid "Female"
+msgstr "Femme"
+
+#: models.py:22
+msgid "First Name"
+msgstr "Prénom"
+
+#: models.py:23
+msgid "Last Name"
+msgstr "Nom"
+
+#: models.py:24
+msgid "Sex"
+msgstr "Sexe"
+
+#: models.py:25
+msgid "Age"
+msgstr "Age"
+
+#: models.py:26
+msgid "Occupation"
+msgstr "Activité"
+
+#: models.py:27
+msgid "Date of encounter"
+msgstr "Date de l'enquête"
+
+#: models.py:32
+#, python-format
+msgid "%(first)s %(last)s"
+msgstr "%(first)s %(last)s"
+
+#: models.py:44
+#, python-format
+msgid "%(name)s %(age)s %(sex)s"
+msgstr "%(name)s %(age)s %(sex)s"
+
+#: models.py:52
+msgid "Activity"
+msgstr "Activité"
+
+#: models.py:53
+msgid "Activities"
+msgstr "Activités"
+
+#: models.py:55
+msgid "Code"
+msgstr "Code"
+
+#: models.py:56
+msgid "Name"
+msgstr "Libellé"
+
+#: models.py:56
+msgid "Example: Student."
+msgstr "Exemple: Étudiant"
