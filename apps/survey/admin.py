@@ -12,7 +12,10 @@ class PersonAdmin(admin.ModelAdmin):
     ordering = [('-entered_on')]
     search_fields = ['first_name', 'last_name', 'activity__name']
 
+class ActivityAdmin(admin.ModelAdmin):
 
+    list_display = ('name', 'code')
+    ordering = [('code')]
 
 admin.site.register(Person, PersonAdmin)
-admin.site.register(Activity)
+admin.site.register(Activity, ActivityAdmin)
