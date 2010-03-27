@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # encoding=utf-8
 
+''' Survey App Models
+
+Person: holds the encounters of Survey
+Activity: Stores different activity runned by persons '''
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -23,8 +28,12 @@ class Person(models.Model):
     last_name = models.CharField(verbose_name=_(u"Last Name"), max_length=40)
     sex = models.CharField(verbose_name=_(u"Sex"), max_length=1, choices=SEXES)
     age = models.PositiveIntegerField(verbose_name=_(u"Age"))
-    activity = models.ForeignKey("Activity", verbose_name=_(u"Occupation"), blank=True, null=True, help_text=u"Current Main Occupation")
-    entered_on = models.DateTimeField(verbose_name="Date", auto_now_add=True, help_text=_("Date of encounter"))
+    activity = models.ForeignKey("Activity", verbose_name=_(u"Occupation"), \
+                                 blank=True, null=True, \
+                                 help_text=u"Current Main Occupation")
+    entered_on = models.DateTimeField(verbose_name="Date", \
+                                      auto_now_add=True, \
+                                      help_text=_("Date of encounter"))
 
     @property
     def name(self):
@@ -52,8 +61,10 @@ class Activity(models.Model):
         verbose_name = _(u"Activity")
         verbose_name_plural = _(u"Activities")
 
-    code = models.CharField(verbose_name=_(u"Code"), max_length=3, unique=True)
-    name = models.CharField(verbose_name=_(u"Name"), max_length=30, help_text=_(u"Example: Student."))
+    code = models.CharField(verbose_name=_(u"Code"), \
+                            max_length=3, unique=True)
+    name = models.CharField(verbose_name=_(u"Name"), \
+                            max_length=30, help_text=_(u"Example: Student."))
 
     def __unicode__(self):
         return u"%s" % self.name

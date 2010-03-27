@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # encoding=utf-8
 
+''' Survey RapidSMS App '''
+
 import rapidsms
 from rapidsms.parsers.keyworder import Keyworder
 from django.utils.translation import ugettext as _
@@ -9,6 +11,14 @@ from models import *
 
 
 class App(rapidsms.app.App):
+    ''' Survey RapidSMS App
+
+    Manages one simple SMS-collected survey.
+
+    help: return usage
+    survey: record an encounter
+    find: look up results from DB.
+    stat: return number of records '''
 
     keyword = Keyworder()
 
@@ -34,6 +44,7 @@ class App(rapidsms.app.App):
     @keyword('')
     def help(self, message):
         ''' display a usage message for the survey '''
+
         message.respond(_(u"Survey format: survey FIRST LAST SEX AGE (ACTIVITY)"))
         return True
 
@@ -53,7 +64,7 @@ class App(rapidsms.app.App):
         # convert age to int
         age = int(age)
 
-        # retrieve activity
+        # retrieve activity (or None)
         try:
             activity = Activity.objects.get(code=activity_code.strip().lower())
         except Activity.DoesNotExist:
@@ -74,6 +85,7 @@ class App(rapidsms.app.App):
     def search(self, message, activity_code):
         ''' find the result of people in DB filtered by activity '''
 
+        # if activity is not found, use None
         try:
             activity = Activity.objects.get(code=activity_code.strip().lower())
         except Activity.DoesNotExist:
@@ -101,6 +113,7 @@ class App(rapidsms.app.App):
     @keyword('')
     def stats(self, message):
         ''' returns the number of records in DB. '''
+
         persons = Person.objects.all()
         message.respond(_(u"Survey database knows about %d persons.") \
                         % persons.__len__())
