@@ -1,0 +1,19 @@
+
+Survey App
+
+    A RapidSMS App to showcase use of SMS to collect survey Data.
+
+Includes:
+    - SMS input
+    - Django Admin U.I
+    - DataBase storage
+    - Web Dashboard
+    - French translation
+
+Requirements:
+    - Python
+    - Django
+    - RapidSMS
+
+Install:
+    - Run fixtures from Activity.json
