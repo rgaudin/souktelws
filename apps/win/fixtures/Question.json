@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "win.question", "fields": {"answer": "rouge", "question": "Couleur du drapeau Turc ?", "level": 1}}, {"pk": 2, "model": "win.question", "fields": {"answer": "50", "question": "Nombres d'etoiles sur le drapeau americain ?", "level": 1}}]
