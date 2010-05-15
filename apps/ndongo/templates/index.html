@@ -1,12 +1,22 @@
 {% extends base_template %}
 
+{% block title %}Ndoŋo{% endblock %}
+
 {% block content %}
 
+{% if winners %}
 <h1>Ndoŋo Winners!</h1>
 <ol>
 {% for att in winners %}
 <li>{{ att }}</li>
 {% endfor %}
 </ol>
+{% else %}
+<h1>Ndoŋo Winners Lottery!</h1>
+<form method="POST" action="{% url index %}">
+<label>Select how many winners you want: <input name="nb_winners" value="1" /></label>
+<input type="submit" value=" Wizzz! " onclick="javascript: goToResult();"/>
+</form>
+{% endif %}
 
 {% endblock %}
