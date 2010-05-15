@@ -1,0 +1,12 @@
+{% extends base_template %}
+
+{% block content %}
+
+<h1>Ndoŋo Winners!</h1>
+<ol>
+{% for att in winners %}
+<li>{{ att }}</li>
+{% endfor %}
+</ol>
+
+{% endblock %}
