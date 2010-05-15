@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "allotaxi.taxi", "fields": {"position": 3, "disponible": true, "numero": "3456", "nom": "Titeuf"}}, {"pk": 2, "model": "allotaxi.taxi", "fields": {"position": 2, "disponible": true, "numero": "7890", "nom": "Nadia"}}]

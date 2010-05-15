@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "allotaxi.lieu", "fields": {"nom": "Dakar", "code": "dkr", "parent": null}}, {"pk": 2, "model": "allotaxi.lieu", "fields": {"nom": "Louga", "code": "lg", "parent": null}}, {"pk": 3, "model": "allotaxi.lieu", "fields": {"nom": "Yoff", "code": "yoff", "parent": 1}}, {"pk": 4, "model": "allotaxi.lieu", "fields": {"nom": "Plateau", "code": "plat", "parent": 1}}]
